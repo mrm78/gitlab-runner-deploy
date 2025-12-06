@@ -27,7 +27,7 @@ spec:
               value: ""
           volumeMounts:
             - name: runner-config
-                mountPath: /etc/gitlab-runner
+              mountPath: /etc/gitlab-runner
       volumes:
         - name: runner-config
           persistentVolumeClaim:
