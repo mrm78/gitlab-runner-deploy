@@ -20,7 +20,6 @@ spec:
       containers:
         - name: docker
           image: docker:27-dind
-          imagePullPolicy: Always
           securityContext:
             privileged: true
           env:

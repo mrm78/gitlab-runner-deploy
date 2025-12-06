@@ -15,6 +15,7 @@ spec:
       containers:
         - name: gitlab-runner
           image: mrm78/gitlab-runner
+          imagePullPolicy: Always
           args: ["run"]
           env:
             - name: CI_SERVER_URL
