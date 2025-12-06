@@ -30,4 +30,16 @@ spec:
                 mountPath: /etc/gitlab-runner
       volumes:
         - name: runner-config
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: runner-config
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: runner-config
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
