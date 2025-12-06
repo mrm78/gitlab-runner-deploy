@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: dind
+  labels:
+    app: dind
+spec:
+  serviceName: dind
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dind
+  template:
+    metadata:
+      labels:
+        app: dind
+    spec:
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: docker
+          image: docker:27-dind
+          securityContext:
+            privileged: true
+          env:
+            - name: DOCKER_TLS_CERTDIR
+              value: ""
+          ports:
+            - containerPort: 2375
+              name: docker
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+      volumes: []
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dind
+spec:
+  ports:
+    - port: 2375
+      name: docker
+  selector:
+    app: dind

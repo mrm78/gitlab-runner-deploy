@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab-runner
+  template:
+    metadata:
+      labels:
+        app: gitlab-runner
+    spec:
+      containers:
+        - name: gitlab-runner
+          image: gitlab/gitlab-runner:alpine
+          args: ["run"]
+          env:
+            - name: CI_SERVER_URL
+              value: "https://gitlab.com/"
+            - name: REGISTRATION_TOKEN
+              value: lskdvlsidjlsdkcsjdhflsidkjfkdmc
+            - name: DOCKER_HOST
+              value: "tcp://dind:2375"
+            - name: DOCKER_TLS_CERTDIR
+              value: ""
+          volumeMounts:
+            - name: runner-config
+                mountPath: /etc/gitlab-runner
+      volumes:
+        - name: runner-config
+          emptyDir: {}
