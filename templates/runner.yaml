@@ -32,6 +32,8 @@ spec:
         - name: runner-config
           persistentVolumeClaim:
             claimName: runner-config
+      nodeSelector:
+        kubernetes.io/hostname: gen
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
