@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: gitlab-runner
-          image: gitlab/gitlab-runner:alpine
+          image: mrm78/gitlab-runner
           args: ["run"]
           env:
             - name: CI_SERVER_URL
