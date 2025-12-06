@@ -30,8 +30,8 @@ spec:
               name: docker
           resources:
             limits:
-              cpu: "1"
-              memory: "2Gi"
+              cpu: "2"
+              memory: "3Gi"
             requests:
               cpu: "100m"
               memory: "256Mi"
