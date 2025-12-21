@@ -25,24 +25,18 @@ spec:
           env:
             - name: DOCKER_TLS_CERTDIR
               value: ""
-            - name: HTTP_PROXY
-              value: "http://192.168.100.105:2082"
-            - name: HTTPS_PROXY
-              value: "http://192.168.100.105:2082"
-            - name: NO_PROXY
-              value: "localhost,127.0.0.1"
           ports:
             - containerPort: 2375
               name: docker
           resources:
             limits:
               cpu: "2"
-              memory: "6Gi"
+              memory: "2Gi"
             requests:
               cpu: "100m"
               memory: "256Mi"
       nodeSelector:
-        kubernetes.io/hostname: gen
+        kubernetes.io/hostname: node2
 
 ---
 apiVersion: v1
