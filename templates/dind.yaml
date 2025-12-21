@@ -25,6 +25,12 @@ spec:
           env:
             - name: DOCKER_TLS_CERTDIR
               value: ""
+            - name: HTTP_PROXY
+              value: "http://192.168.100.105:2082"
+            - name: HTTPS_PROXY
+              value: "http://192.168.100.105:2082"
+            - name: NO_PROXY
+              value: "localhost,127.0.0.1"
           ports:
             - containerPort: 2375
               name: docker
