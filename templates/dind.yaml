@@ -31,12 +31,12 @@ spec:
           resources:
             limits:
               cpu: "2"
-              memory: "2Gi"
+              memory: "6Gi"
             requests:
               cpu: "100m"
               memory: "256Mi"
       nodeSelector:
-        kubernetes.io/hostname: node2
+        kubernetes.io/hostname: gen
 
 ---
 apiVersion: v1
