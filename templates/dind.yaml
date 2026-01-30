@@ -31,12 +31,12 @@ spec:
           resources:
             limits:
               cpu: "2"
-              memory: "9Gi"
+              memory: "6Gi"
             requests:
               cpu: "100m"
               memory: "256Mi"
       nodeSelector:
-        kubernetes.io/hostname: gen2
+        x-gitlab-runner: true
 
 ---
 apiVersion: v1

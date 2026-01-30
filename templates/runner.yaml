@@ -34,7 +34,7 @@ spec:
           persistentVolumeClaim:
             claimName: runner-config
       nodeSelector:
-        kubernetes.io/hostname: gen
+        x-gitlab-runner: true
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
