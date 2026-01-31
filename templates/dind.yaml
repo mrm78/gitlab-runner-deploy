@@ -26,8 +26,7 @@ spec:
             - name: DOCKER_TLS_CERTDIR
               value: ""
 {{- if .Values.dind_mirror }}
-          command:
-            - dockerd
+          args:
             - --registry-mirror={{ .Values.dind_mirror }}
 {{- end }}
           ports:
