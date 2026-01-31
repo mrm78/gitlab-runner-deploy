@@ -34,7 +34,7 @@ spec:
           persistentVolumeClaim:
             claimName: runner-config
       nodeSelector:
-        x-gitlab-runner: true
+        x-gitlab-runner: "true"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
