@@ -25,6 +25,11 @@ spec:
           env:
             - name: DOCKER_TLS_CERTDIR
               value: ""
+{{- if .Values.dind_mirror }}
+          command:
+            - dockerd
+            - --registry-mirror={{ .Values.dind_mirror }}
+{{- end }}
           ports:
             - containerPort: 2375
               name: docker
