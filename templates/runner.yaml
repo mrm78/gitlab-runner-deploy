@@ -12,13 +12,13 @@ spec:
       labels:
         app: gitlab-runner
     spec:
+{{- if .Values.gitlabRunner.imagePullSecrets }}
+      imagePullSecrets:
+        name: {{ .Values.gitlabRunner.imagePullSecrets }}
+{{- end }}
       containers:
         - name: gitlab-runner
           image: {{ .Values.gitlabRunner.image }}
-{{- if .Values.gitlabRunner.imagePullSecrets }}
-          imagePullSecrets:
-            name: {{ .Values.gitlabRunner.imagePullSecrets }}
-{{- end }}
           args: ["run"]
           env:
             - name: CI_SERVER_URL

@@ -17,13 +17,13 @@ spec:
     spec:
       serviceAccountName: default
       terminationGracePeriodSeconds: 10
+{{- if .Values.dind.imagePullSecrets }}
+      imagePullSecrets:
+        name: {{ .Values.dind.imagePullSecrets }}
+{{- end }}
       containers:
         - name: docker
           image: {{ .Values.dind.image }}
-{{- if .Values.dind.imagePullSecrets }}
-          imagePullSecrets:
-            name: {{ .Values.dind.imagePullSecrets }}
-{{- end }}
           securityContext:
             privileged: true
           env:
