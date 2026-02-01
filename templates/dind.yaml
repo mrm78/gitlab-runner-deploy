@@ -25,7 +25,7 @@ spec:
           env:
             - name: DOCKER_TLS_CERTDIR
               value: ""
-{{- if .Values.dind_mirror }}
+{{- if .Values.dind.mirror }}
           args:
             - --registry-mirror={{ .Values.dind_mirror }}
 {{- end }}

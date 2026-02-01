@@ -1,0 +1,4 @@
+dind:
+  # mirror: 
+gitlab_runner:
+  image: mrm78/gitlab-runner

@@ -1,1 +1,4 @@
-dind_mirror: https://docker.chabokan.net
+dind:
+  mirror: https://docker.chabokan.net
+gitlab_runner:
+  image: registry.bitycle.com/utils/gitlab-runner:latest
