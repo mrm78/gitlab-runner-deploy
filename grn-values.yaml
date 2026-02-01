@@ -1,4 +1,7 @@
 dind:
+  image: docker:27-dind
+  # imagePullSecrets: bitycle-reg
   mirror: https://docker.chabokan.net
-gitlab_runner:
+gitlabRunner:
   image: registry.bitycle.com/utils/gitlab-runner:latest
+  imagePullSecrets: bitycle-reg

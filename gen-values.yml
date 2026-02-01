@@ -1,4 +1,7 @@
 dind:
-  # mirror: 
-gitlab_runner:
-  image: mrm78/gitlab-runner
+  image: docker:27-dind
+  # imagePullSecrets: bitycle-reg
+  # mirror: https://docker.chabokan.net
+gitlabRunner:
+  image: mrm78/gitlab-runner:latest
+  imagePullSecrets: bitycle-reg

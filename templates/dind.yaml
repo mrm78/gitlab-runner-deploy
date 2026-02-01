@@ -19,7 +19,11 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: docker
-          image: docker:27-dind
+          image: {{ .Values.dind.image }}
+{{- if .Values.dind.imagePullSecrets }}
+          imagePullSecrets:
+            name: {{ .Values.dind.imagePullSecrets }}
+{{- end }}
           securityContext:
             privileged: true
           env:
@@ -27,7 +31,7 @@ spec:
               value: ""
 {{- if .Values.dind.mirror }}
           args:
-            - --registry-mirror={{ .Values.dind_mirror }}
+            - --registry-mirror={{ .Values.dind.mirror }}
 {{- end }}
           ports:
             - containerPort: 2375
