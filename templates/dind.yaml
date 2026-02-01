@@ -19,7 +19,7 @@ spec:
       terminationGracePeriodSeconds: 10
 {{- if .Values.dind.imagePullSecrets }}
       imagePullSecrets:
-        name: {{ .Values.dind.imagePullSecrets }}
+        - name: {{ .Values.dind.imagePullSecrets }}
 {{- end }}
       containers:
         - name: docker
